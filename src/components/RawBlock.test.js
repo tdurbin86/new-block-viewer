@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import { configure, shallow } from 'enzyme';
 import { expect } from 'chai';
 
-import Block from './Block';
+import RawBlock from './RawBlock';
 
 import Adapter from 'enzyme-adapter-react-16'
 configure({ adapter: new Adapter() });
@@ -15,14 +15,14 @@ const block={
 	transactions: []
 };
 
-describe('testing Block component', () => {
-	const wrapper = shallow(<Block key={block.block_num}/>);
+describe('testing RawBlock component', () => {
+	const wrapper = shallow(<RawBlock raw={JSON.stringify(block)}/>);
 
-	it('renders 1 <tr> tag with class block', () => {
-		expect(wrapper.find('tr.block')).to.have.length(1);
+	it('renders 1 <tr> tag with class rawblock', () => {
+		expect(wrapper.find('tr.rawblock')).to.have.length(1);
 	});
 	
-	it('renders 3 <td> tags', () => {
-		expect(wrapper.find('td')).to.have.length(3);
+	it('renders 1 <td> tag', () => {
+		expect(wrapper.find('td')).to.have.length(1);
 	});
 });
