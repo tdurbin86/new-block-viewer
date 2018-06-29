@@ -1,0 +1,24 @@
+.blocklist {
+	border-collapse: collapse;
+	width: 100%;
+}
+ 
+.blocklist th {
+    background-color: #eeeeee;
+	border: 1px solid;
+	font-size: 24px;
+}
+
+.blocklist td {
+	border: 1px solid;
+	font-size: 16px;
+}
+
+.blocklist tr {
+    background-color: #ffffff;
+}
+
+.blocklist tr:hover {
+    background-color: #dddddd;
+    color: black;
+}
