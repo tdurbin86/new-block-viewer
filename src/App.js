@@ -64,12 +64,15 @@ class App extends Component {
 			newBlocks.forEach(item => {
 				if(item.transactions.length > 0) {
 					item.transactions.forEach(tran => {
-						if(tran.trx.transaction.actions.length > 0) {
-							tran.trx.transaction.actions.forEach(action => {
-								if(!accounts.includes(action.account)) {
-									accounts.push(action.account);
-								}
-							}) 
+						if(tran.trx.transaction != undefined)
+						{
+							if(tran.trx.transaction.actions.length > 0) {
+								tran.trx.transaction.actions.forEach(action => {
+									if(!accounts.includes(action.account)) {
+										accounts.push(action.account);
+									}
+								}) 
+							}
 						}
 					})
 				}

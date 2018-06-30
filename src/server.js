@@ -60,7 +60,6 @@ async function getBlocks() {
 	try {
 		console.log('Getting chain info...');
 		let info = await eos.getInfo({});
-		console.dir(info);
 
 		console.log('Getting blocks: ' + (info.head_block_num - 9) + ':' + info.head_block_num);
 		let blockRequests=[];
