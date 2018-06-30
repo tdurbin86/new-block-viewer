@@ -47,7 +47,6 @@ async function getABI(account) {
 	try {
 		console.log('Getting ABI data...');
 		let abiResponse = await eos.getAbi(account);
-		console.dir(abiResponse);
 		
 		return abiResponse;
 	}
@@ -70,7 +69,6 @@ async function getBlocks() {
 		}
 		
 		let blocks = await Promise.all(blockRequests);
-		console.dir(blocks);
 		
 		return blocks;
 	}
