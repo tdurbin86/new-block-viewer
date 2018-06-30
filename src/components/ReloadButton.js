@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import './ReloadButton.css';
 
 function ReloadButton(props) {

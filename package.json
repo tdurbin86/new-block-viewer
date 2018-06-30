@@ -23,6 +23,8 @@
   },
   "devDependencies": {
     "ajv": "^6.5.1",
-    "concurrently": "^3.6.0"
+    "concurrently": "^3.6.0",
+    "markdown-it": "^8.4.1",
+    "mustache": "^2.3.0"
   }
 }

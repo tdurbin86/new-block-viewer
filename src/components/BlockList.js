@@ -33,8 +33,22 @@ class BlockList extends Component {
 			allRows = allRows.concat(currentRow);
 		
 			if (this.state.expandedRows.includes(item.block_num)) {
-				const expandedRow = <RawBlock raw={JSON.stringify(item)}/>
+				const rawContent = JSON.stringify(item, function(key, val) {
+					if(key == "ricardianContracts") {
+						return undefined;
+					}
+					return val;
+				});
+				const expandedRow = <RawBlock key={item.id} raw={rawContent}/>
 				allRows = allRows.concat(expandedRow);
+				
+				for(let i=0; i<item.ricardianContracts.length; i++) {
+					if (item.ricardianContracts[i].length > 0) {
+						const expandedRow2 = <RawBlock key={item.id + i} raw={"RICARDIAN CONTRACT: " +
+							item.ricardianContracts[i]}/>
+						allRows = allRows.concat(expandedRow2);
+					}
+				}
 			}
 		});
 	

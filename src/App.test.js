@@ -24,8 +24,11 @@ const blocks = [{
 	transactions: [1, 2]
 }];
 
+const abi = [{
+}];
+
 describe('App component testing', () => {
-	let stub = sinon.stub(App.prototype, 'fetchBlocks').returns(blocks);
+	const blocksStub = sinon.stub(App.prototype, 'fetchBlockAndABIData').returns(blocks);
 	const wrapper = shallow(<App />); 
 
 	it('renders 1 BlockList component', () => { 	

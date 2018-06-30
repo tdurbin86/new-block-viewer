@@ -1,6 +1,11 @@
 .rawblock {
+	background-color: #aaaaaa;
 	text-align: center;
 	white-space: normal;
 	width: 20%;
 	word-break: break-all;
+}
+
+.rawblock td {
+	background-color: #ddeedd;
 }

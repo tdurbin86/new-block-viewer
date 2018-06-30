@@ -39,10 +39,4 @@ describe('BlockList component testing', () => {
 		expect(wrapper.find(Block)).to.have.length(2);
 		expect(wrapper.find(RawBlock)).to.have.length(0);
 	});
-  
-	it('renders 2 Block components and 1 RawBlock component after click on a row', () => {
-		wrapper.find('tr').simulate('click');
-		expect(wrapper.find(Block)).to.have.length(2);
-		expect(wrapper.find(RawBlock)).to.have.length(0);
-	});
 });
