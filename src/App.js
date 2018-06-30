@@ -106,27 +106,29 @@ class App extends Component {
 			block.ricardianContracts = [];
 			if(block.transactions.length > 0) {
 				block.transactions.forEach(tran => {
-					if(tran.trx.transaction.actions.length > 0) {
-						tran.trx.transaction.actions.forEach(blockAction => {
-							// find the correct abi record
-							const abiIndex = abis.findIndex((abi) => {
-								return abi.account_name == blockAction.account;
-							});
+					if(tran.trx.transaction != undefined)
+					{
+						if(tran.trx.transaction.actions.length > 0) {
+							tran.trx.transaction.actions.forEach(blockAction => {
+								// find the correct abi record
+								const abiIndex = abis.findIndex((abi) => {
+									return abi.account_name == blockAction.account;
+								});
 							
-							// find the correct abi action
-							const abi = abis[abiIndex].abi;
-							const abiActionIndex = abi.actions.findIndex((abiAction) => {
-								return abiAction.name == blockAction.name;
-							});
+								// find the correct abi action
+								const abi = abis[abiIndex].abi;
+								const abiActionIndex = abi.actions.findIndex((abiAction) => {
+									return abiAction.name == blockAction.name;
+								});
 							
-							// mustache and markdown-it
-							const mustacheOutput = mustache.render(
-								abi.actions[abiActionIndex].ricardian_contract, blockAction.data);
-							const markdownOutput = markdown.render(mustacheOutput);
+								// mustache and markdown-it
+								const mustacheOutput = mustache.render(abi.actions[abiActionIndex].ricardian_contract, blockAction.data);
+								const markdownOutput = markdown.render(mustacheOutput);
 							
-							// add the record to the list of contracts for this block
-							block.ricardianContracts.push(markdownOutput);
-						}) 
+								// add the record to the list of contracts for this block
+								block.ricardianContracts.push(markdownOutput);
+							})
+						}
 					}
 				})
 			}
